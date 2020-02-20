@@ -137,7 +137,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a0e61cb7f8c3c48458b6f652b5e16340, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -317,8 +317,10 @@ MonoBehaviour:
   m_riFlower1: {fileID: 7175810199209406564}
   m_riFlower2: {fileID: 4867092374590852144}
   m_objBlckMask: {fileID: 306772102463345636}
+  m_fOpenDelay: 1.5
   m_iId: 0
   m_bSelected: 0
+  m_bSelectedTemp: 0
 --- !u!114 &5938354990046423033
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ namespace TPOne
         public void CreateCards()
         {
             m_cardCreater.CreateCards();
-            m_cardUiSystem.RefreshCards();
+            m_cardUiSystem.RefreshViewAnimaition();
         }
 
         public void PlayCards()
@@ -70,7 +70,7 @@ namespace TPOne
         public void ReorderCards(bool reverse)
         {
             m_cardSorter.SortCards(reverse);
-            m_cardUiSystem.RefreshCards();
+            m_cardUiSystem.RefreshWithOpenAnimation();
         }
 
         void OnSelectedCard(int id)

@@ -22,6 +22,7 @@ namespace TPOne.Submodule
         public RawImage m_riFlower1;
         public RawImage m_riFlower2;
         public GameObject m_objBlckMask;
+        public float m_fOpenDelay = 1.5f;
 
         public int m_iId;
         public bool m_bSelected = false;
@@ -201,21 +202,32 @@ namespace TPOne.Submodule
             return bOk;
         }
 
+        public void OpenWithAnimation()
+        {
+            StartCoroutine(OpenSync());
+        }
+
+        IEnumerator OpenSync()
+        {
+            yield return new WaitForSeconds(m_fOpenDelay);
+
+            Open();
+        }
+
         public void Fold()
         {
             m_riBg.texture = m_infoSO.backTex;
-            m_riNum.texture = null;
-            m_riFlower1.texture = null;
-            m_riFlower2.texture = null;
+            m_riNum.gameObject.SetActive(false);
+            m_riFlower1.gameObject.SetActive(false);
+            m_riFlower2.gameObject.SetActive(false);
         }
 
         void MoveUpAnimation(bool isMoveUp)
-        {
+        {   
             if (isMoveUp)
                 m_riBg.transform.DOLocalMoveY(50, 0.1f).SetLink(gameObject).SetLink(gameObject);
             else
                 m_riBg.transform.DOLocalMoveY(0, 0.1f).SetLink(gameObject).SetLink(gameObject);
-
         }
     }
 }
