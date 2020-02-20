@@ -64,7 +64,7 @@ namespace TPOne.Ui
                 yield return new WaitForSeconds(0.1f);
             }
 
-            foreach(var c in m_lsCards)
+            foreach (var c in m_lsCards)
             {
                 c.Open();
             }
@@ -72,6 +72,14 @@ namespace TPOne.Ui
 
         public void RefreshWithOpenAnimation()
         {
+            var lsDatas = CardContainer.Instance.m_lsCardDatas;
+
+            for (int j = 0; j < lsDatas.Count; ++j)
+            {
+                // Update card
+                m_lsCards[j].Refresh(lsDatas[j]);
+            }
+
             for (int i = 0; i < m_lsCards.Count; ++i)
             {
                 m_lsCards[i].Fold();
