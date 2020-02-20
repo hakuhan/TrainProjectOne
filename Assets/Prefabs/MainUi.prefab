@@ -94,12 +94,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 904809384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3fe319bbce0ec4caa1ab55dc9cdabc, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b981439211127d4090b30527d705b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_bSlide: 0
   m_fDragDistance: 0
   m_v3MouseCurrentPosion: {x: 0, y: 0, z: 0}
+  m_v3StartPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1818514079
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -427, y: 0}
+  m_AnchoredPosition: {x: -427.00006, y: 0}
   m_SizeDelta: {x: -888.17505, y: -23.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5463444564838308955
@@ -1354,7 +1355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -142, y: 0}
+  m_AnchoredPosition: {x: -142.00006, y: 0}
   m_SizeDelta: {x: -888.17505, y: -23.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5463444566342199956

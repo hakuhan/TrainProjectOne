@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace TPOne.Events
@@ -10,5 +11,10 @@ namespace TPOne.Events
 
         public static UnityAction OnSlideCard = () => { };
         public static UnityAction OnSlideOver = () => { };
+
+        // Input events
+        public static UnityAction OnTouchBegin = () => { };
+        public static UnityAction OnTouchOver = () => { };
+        public static UnityAction<Vector2, Vector2> OnDrag = (startPosition, endPosition) => { };
     }
 }
