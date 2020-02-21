@@ -24,6 +24,7 @@ namespace TPOne.Submodule
         public RawImage m_riFlower2;
         public GameObject m_objBlckMask;
         public float m_fOpenDelay = 1.5f;
+        public bool m_bVisble = false;
 
         public int m_iId;
         public InfoData m_info;
@@ -90,11 +91,13 @@ namespace TPOne.Submodule
 
         public void Show()
         {
+            m_bVisble = true;
             gameObject.SetActive(true);
         }
 
         public void HideCard()
         {
+            m_bVisble = false;
             gameObject.SetActive(false);
             MoveUpAnimation(false);
         }

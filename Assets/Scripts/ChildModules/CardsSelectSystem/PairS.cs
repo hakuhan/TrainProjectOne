@@ -40,7 +40,8 @@ namespace TPOne.CardSelector
                 int iTypeCount = 0;
                 for (int j = 0; j < lsCards.Count; ++j)
                 {
-                    if (lsCards[i].m_info.m_eNumber == lsCards[j].m_info.m_eNumber)
+                    if (lsCards[j].m_bVisble
+                        && lsCards[i].m_info.m_eNumber == lsCards[j].m_info.m_eNumber)
                     {
                         ++iTypeCount;
                     }
@@ -66,7 +67,7 @@ namespace TPOne.CardSelector
             var lsCards = CardContainer.Instance.m_lsCards;
 
             // Check offset
-            if (m_iPairOffset > m_lsPair.Count - 1)
+            if (m_iPairOffset < m_lsPair.Count - 1)
             {
                 ++m_iPairOffset;
             }
@@ -82,7 +83,7 @@ namespace TPOne.CardSelector
             }
 
             // pop up
-            foreach(var c1 in lsCards.FindAll(_c => _c.m_info.m_eNumber == m_lsPair[m_iPairOffset]))
+            foreach (var c1 in lsCards.FindAll(_c => _c.m_info.m_eNumber == m_lsPair[m_iPairOffset]))
             {
                 c1.ChangeState(true);
             }

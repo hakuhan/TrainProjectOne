@@ -90,6 +90,7 @@ namespace TPOne.Submodule
             {
                 // Reset card
                 lsCards[i].HideCard();
+                lsCards[i].m_bVisble = true;
             }
 
             for (int j = 0; j < lsDatas.Count; ++j)
