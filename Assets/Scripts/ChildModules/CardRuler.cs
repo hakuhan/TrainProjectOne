@@ -87,19 +87,19 @@ namespace TPOne.Submodule
                 { 
                     m_iId = 52, 
                     m_bJoker = true,
-                    m_t2Flower1 = m_cardInfoSo.m_specialItem.m_t2SJoker, 
+                    m_t2Flower1 = null, 
                     m_iOrder = 52, 
                     m_t2Flower2 = null, 
-                    m_t2Num = null 
+                    m_t2Num = m_cardInfoSo.m_specialItem.m_t2SJoker 
                 });
             m_cardInfoSo.m_infos.Add(new InfoData() 
                 { 
                     m_iId = 53, 
                     m_bJoker = true,
-                    m_t2Flower1 = m_cardInfoSo.m_specialItem.m_t2BJoker, 
+                    m_t2Flower1 = null, 
                     m_iOrder = 53, 
                     m_t2Flower2 = null, 
-                    m_t2Num = null 
+                    m_t2Num = m_cardInfoSo.m_specialItem.m_t2BJoker 
                 });
 
         }
