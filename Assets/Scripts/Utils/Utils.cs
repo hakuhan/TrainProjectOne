@@ -43,6 +43,33 @@ public class Utils
         return false;
     }
 
+    public static List<int> GetIdsByCardNumber(CardInfoSO infoSO, E_CardNumber eCardNumber)
+    {
+        var lsCards = CardContainer.Instance.m_lsCards;
+
+        var ids = infoSO.m_infos.FindAll(_d => _d.m_eNumber == eCardNumber);
+
+        var lsResult = new List<int>();
+        foreach (var id in ids)
+        {
+            lsResult.Add(id.m_iId);
+        }
+
+        return lsResult;
+    }
+
+    public static E_CardNumber GetCardNumberById(CardInfoSO infoSO, int id)
+    {
+        int index = infoSO.m_infos.FindIndex(_info => _info.m_iId == id);
+
+        if (index != -1)
+        {
+            return infoSO.m_infos[index].m_eNumber;
+        }
+
+        return E_CardNumber.none;
+    }
+
     // 线与矩形是否相交
     public static bool IsLineIntersectRect(Vector2 v2LineStart, Vector2 v2LineEnd, Rect rect)
     {

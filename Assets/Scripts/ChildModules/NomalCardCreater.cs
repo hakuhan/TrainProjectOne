@@ -31,6 +31,7 @@ namespace TPOne.Submodule
             }
 
             RefreshEvents.RefreshCardDelayWithOpen();
+            RefreshEvents.OnCardDataRefreshed();
         }
     }
 }

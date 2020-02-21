@@ -52,9 +52,40 @@ namespace TPOne.Datas
     {
         public int m_iId;
         public int m_iOrder;
-        public bool m_bJoker;
+        public E_CardNumber m_eNumber;
+        public E_CardType m_eType;
         public Texture2D m_t2Num;
         public Texture2D m_t2Flower1;
         public Texture2D m_t2Flower2;
+    }
+
+    public enum E_CardNumber
+    {
+        a,
+        one,
+        two,
+        tree,
+        four,
+        five,
+        six,
+        seven,
+        eight,
+        nine,
+        ten,
+        j,
+        q,
+        k,
+        joker,
+        none,
+    }
+
+    public enum E_CardType
+    {
+        heart,
+        block,
+        plum,
+        spade,
+        littleJoker,
+        bigJoker,
     }
 }

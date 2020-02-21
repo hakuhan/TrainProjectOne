@@ -48,6 +48,7 @@ namespace TPOne.Submodule
             }
 
             RefreshEvents.RefreshCard();
+            RefreshEvents.OnCardDataRefreshed();
             m_lsSelectedCards.Clear();
         }
 

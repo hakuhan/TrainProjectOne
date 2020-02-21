@@ -26,6 +26,7 @@ namespace TPOne.Submodule
         public float m_fOpenDelay = 1.5f;
 
         public int m_iId;
+        public InfoData m_info;
         // 最终的选择状态
         public bool m_bSelected = false;
         bool m_bSelectedTemp = false;
@@ -63,13 +64,33 @@ namespace TPOne.Submodule
             }
         }
 
+        public void ChangeState(bool bState)
+        {
+            MoveUpAnimation(bState);
+            if (bState)
+            {
+                TPOne.Events.TouchEvents.OnCardClicked(m_iId);
+            }
+            else
+            {
+                TPOne.Events.TouchEvents.OnCardCanceled(m_iId);
+            }
+        }
+
         public void Refresh(CardData data)
         {
             m_iId = data.m_iId;
 
-            gameObject.SetActive(true);
+            var index = m_infoSO.m_infos.FindIndex(info => info.m_iId == m_iId);
+            if (index != -1)
+            {
+                m_info = m_infoSO.m_infos[index];
+            }
+        }
 
-            Open();
+        public void Show()
+        {
+            gameObject.SetActive(true);
         }
 
         public void HideCard()
@@ -90,7 +111,7 @@ namespace TPOne.Submodule
             if (texIndex != -1)
             {
                 bOk = true;
-                if (m_infoSO.m_infos[texIndex].m_bJoker)
+                if (m_infoSO.m_infos[texIndex].m_eNumber == E_CardNumber.joker)
                 {
                     m_riBg.texture = m_infoSO.m_infos[texIndex].m_t2Num;
                     m_riNum.gameObject.SetActive(false);

@@ -20,6 +20,7 @@ namespace TPOne.Events
         public static UnityAction RefreshCard = () => { };
         public static UnityAction RefreshCardDelayWithOpen = () => { };
         public static UnityAction RefreshFoldAndOpen = () => { };
+        public static UnityAction OnCardDataRefreshed = () => { };
     }
 
     // public class UiEvents

@@ -71,6 +71,8 @@ namespace TPOne.Submodule
             {
                 // Update card
                 lsCards[j].Refresh(lsDatas[j]);
+                lsCards[j].Show();
+                lsCards[j].Open();
             }
         }
 
@@ -95,6 +97,11 @@ namespace TPOne.Submodule
                 // Update card
                 lsCards[j].Refresh(lsDatas[j]);
                 lsCards[j].Fold();
+            }
+
+            foreach (var c in lsCards)
+            {
+                c.Show();
                 yield return new WaitForSeconds(0.1f);
             }
 

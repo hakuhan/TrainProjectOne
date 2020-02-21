@@ -25,7 +25,11 @@ namespace TPOne.Submodule
                 var cardInfo = new InfoData();
                 cardInfo.m_iId = i;
 
-                cardInfo.m_bJoker = false;
+                // Set number
+                cardInfo.m_eNumber = (E_CardNumber)(i % 13 + 1);
+
+                // Set type
+                cardInfo.m_eType = (E_CardType)(i / 13);
 
                 // set order
                 // cardInfo.m_order = i / 13 + i % 13;
@@ -52,13 +56,13 @@ namespace TPOne.Submodule
                 switch (i / 13)
                 {
                     case 0:
-                        t2Flower1 = m_cardInfoSo.m_cardLittleFlowerItem.m_t2Block;
-                        t2Flower2 = m_cardInfoSo.m_cardBigFlowerItem.m_t2Block;
+                        t2Flower1 = m_cardInfoSo.m_cardLittleFlowerItem.m_t2Heart;
+                        t2Flower2 = m_cardInfoSo.m_cardBigFlowerItem.m_t2Heart;
                         break;
 
                     case 1:
-                        t2Flower1 = m_cardInfoSo.m_cardLittleFlowerItem.m_t2Heart;
-                        t2Flower2 = m_cardInfoSo.m_cardBigFlowerItem.m_t2Heart;
+                        t2Flower1 = m_cardInfoSo.m_cardLittleFlowerItem.m_t2Block;
+                        t2Flower2 = m_cardInfoSo.m_cardBigFlowerItem.m_t2Block;
                         break;
 
                     case 2:
@@ -86,7 +90,8 @@ namespace TPOne.Submodule
             m_cardInfoSo.m_infos.Add(new InfoData() 
                 { 
                     m_iId = 52, 
-                    m_bJoker = true,
+                    m_eNumber = E_CardNumber.joker,
+                    m_eType = E_CardType.bigJoker,
                     m_t2Flower1 = null, 
                     m_iOrder = 52, 
                     m_t2Flower2 = null, 
@@ -95,7 +100,8 @@ namespace TPOne.Submodule
             m_cardInfoSo.m_infos.Add(new InfoData() 
                 { 
                     m_iId = 53, 
-                    m_bJoker = true,
+                    m_eNumber = E_CardNumber.joker,
+                    m_eType = E_CardType.littleJoker,
                     m_t2Flower1 = null, 
                     m_iOrder = 53, 
                     m_t2Flower2 = null, 
