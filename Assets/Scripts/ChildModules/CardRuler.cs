@@ -4,6 +4,7 @@
 */
 
 using TPOne;
+using TPOne.Datas;
 using UnityEngine;
 
 namespace TPOne.Submodule
@@ -19,7 +20,7 @@ namespace TPOne.Submodule
             m_cardInfoSo.m_infos.Clear();
 
             // Set nomal card
-            for (int i = 0; i < m_cardInfoSo.m_iCardCount - 2; ++i)
+            for (int i = 0; i < m_cardInfoSo.m_iCardTotalCount - 2; ++i)
             {
                 var cardInfo = new InfoData();
                 cardInfo.m_iId = i;

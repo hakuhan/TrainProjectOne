@@ -6,12 +6,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using TPOne.Singleton;
+using TPOne.Submodule;
 using UnityEngine;
 
-namespace TPOne.Submodule
+namespace TPOne.Datas
 {
     public class CardContainer : MonoSingleton<CardContainer>
     {
-        public List<CardData> m_lsCardDatas;
+        public List<CardData> m_lsCardDatas = new List<CardData>();
+        public List<Card> m_lsCards = new List<Card>();
     }
 }

@@ -9,283 +9,92 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27cda6ff1dc47974684c38122e82b7bf, type: 3}
+  m_Script: {fileID: 11500000, guid: b2084ed6b95dbb34e9135422cd74d34f, type: 3}
   m_Name: CardInfoSO
   m_EditorClassIdentifier: 
-  m_iCardCount: 54
+  m_iCardInHandCount: 13
+  m_iCardTotalCount: 54
   backTex: {fileID: 2800000, guid: a0e61cb7f8c3c48458b6f652b5e16340, type: 3}
   whiteTex: {fileID: 2800000, guid: 61301cc66d59b554594dc985a5ba821e, type: 3}
   m_infos:
-  - m_id: 1
-    m_order: 1
-    m_numTex: {fileID: 2800000, guid: 86911391fd2f16d4fa1bb09b471e1b35, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 2
-    m_order: 2
-    m_numTex: {fileID: 2800000, guid: 7ef1ba4ef93a73644908bd7fe3d30e84, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 3
-    m_order: 3
-    m_numTex: {fileID: 2800000, guid: 7ef1ba4ef93a73644908bd7fe3d30e84, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 4
-    m_order: 4
-    m_numTex: {fileID: 2800000, guid: 86911391fd2f16d4fa1bb09b471e1b35, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 5
-    m_order: 5
-    m_numTex: {fileID: 2800000, guid: 4a16530a58a49ec438fdcd3b0e74fbfb, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 6
-    m_order: 6
-    m_numTex: {fileID: 2800000, guid: 4a16530a58a49ec438fdcd3b0e74fbfb, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 7
-    m_order: 7
-    m_numTex: {fileID: 2800000, guid: d3791f2bb37b6a847a60dafefdb80f07, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 8
-    m_order: 8
-    m_numTex: {fileID: 2800000, guid: 4a16530a58a49ec438fdcd3b0e74fbfb, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 9
-    m_order: 9
-    m_numTex: {fileID: 2800000, guid: 353f6b6c1135af1428d2a0404077303c, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 10
-    m_order: 10
-    m_numTex: {fileID: 2800000, guid: 353f6b6c1135af1428d2a0404077303c, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 11
-    m_order: 11
-    m_numTex: {fileID: 2800000, guid: 1339e1ff3ed10134b81b0aaf9586b10b, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 12
-    m_order: 12
-    m_numTex: {fileID: 2800000, guid: 353f6b6c1135af1428d2a0404077303c, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 13
-    m_order: 13
-    m_numTex: {fileID: 2800000, guid: cd1a6537c3a06c44e819c45bf802b5d5, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 14
-    m_order: 14
-    m_numTex: {fileID: 2800000, guid: 763c850b3113ba640835cd0eee70ce14, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 15
-    m_order: 15
-    m_numTex: {fileID: 2800000, guid: 763c850b3113ba640835cd0eee70ce14, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 16
-    m_order: 16
-    m_numTex: {fileID: 2800000, guid: cd1a6537c3a06c44e819c45bf802b5d5, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 17
-    m_order: 17
-    m_numTex: {fileID: 2800000, guid: 4fa045ac402a3ca40a75fa8aea95e0c9, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 18
-    m_order: 18
-    m_numTex: {fileID: 2800000, guid: de48237ada312e34a9c9656d3189c812, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 19
-    m_order: 19
-    m_numTex: {fileID: 2800000, guid: 4fa045ac402a3ca40a75fa8aea95e0c9, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 20
-    m_order: 20
-    m_numTex: {fileID: 2800000, guid: de48237ada312e34a9c9656d3189c812, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 21
-    m_order: 21
-    m_numTex: {fileID: 2800000, guid: 9d710ff41351b8a4dba3d61a76637ae3, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 22
-    m_order: 22
-    m_numTex: {fileID: 2800000, guid: 71b64022bb67c6e4981be0d099997e5e, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 23
-    m_order: 23
-    m_numTex: {fileID: 2800000, guid: 9d710ff41351b8a4dba3d61a76637ae3, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 24
-    m_order: 24
-    m_numTex: {fileID: 2800000, guid: 71b64022bb67c6e4981be0d099997e5e, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 25
-    m_order: 25
-    m_numTex: {fileID: 2800000, guid: 6790487cef58dc54f9d5527a511c28e4, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 26
-    m_order: 26
-    m_numTex: {fileID: 2800000, guid: 6790487cef58dc54f9d5527a511c28e4, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 27
-    m_order: 27
-    m_numTex: {fileID: 2800000, guid: 24b5e22cae1bcb94192b9483b3365260, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 28
-    m_order: 28
-    m_numTex: {fileID: 2800000, guid: 24b5e22cae1bcb94192b9483b3365260, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 29
-    m_order: 29
-    m_numTex: {fileID: 2800000, guid: d422addcb1819b84397127797fb29a08, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 30
-    m_order: 30
-    m_numTex: {fileID: 2800000, guid: d422addcb1819b84397127797fb29a08, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 31
-    m_order: 31
-    m_numTex: {fileID: 2800000, guid: c7d52fce65467d0478c988c911b0557a, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 32
-    m_order: 32
-    m_numTex: {fileID: 2800000, guid: c7d52fce65467d0478c988c911b0557a, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 33
-    m_order: 33
-    m_numTex: {fileID: 2800000, guid: f06a8b4340dc6bc42bc003988264fe73, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 34
-    m_order: 34
-    m_numTex: {fileID: 2800000, guid: f06a8b4340dc6bc42bc003988264fe73, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 35
-    m_order: 35
-    m_numTex: {fileID: 2800000, guid: 624932b418b0d7448b175d3a20fc86ba, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 36
-    m_order: 36
-    m_numTex: {fileID: 2800000, guid: 624932b418b0d7448b175d3a20fc86ba, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 37
-    m_order: 37
-    m_numTex: {fileID: 2800000, guid: 99ff494221ed9624282f8c12877332f6, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 38
-    m_order: 38
-    m_numTex: {fileID: 2800000, guid: 99ff494221ed9624282f8c12877332f6, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 39
-    m_order: 39
-    m_numTex: {fileID: 2800000, guid: 11752fc1bea8d344b8d9d0666a71d387, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 40
-    m_order: 40
-    m_numTex: {fileID: 2800000, guid: 11752fc1bea8d344b8d9d0666a71d387, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 41
-    m_order: 41
-    m_numTex: {fileID: 2800000, guid: 1196b61c87cc38043ae9589c2c3eb560, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 42
-    m_order: 42
-    m_numTex: {fileID: 2800000, guid: 1196b61c87cc38043ae9589c2c3eb560, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 43
-    m_order: 43
-    m_numTex: {fileID: 2800000, guid: 88b6ac637ee61f745a3024f138ad073e, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 44
-    m_order: 44
-    m_numTex: {fileID: 2800000, guid: 88b6ac637ee61f745a3024f138ad073e, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 45
-    m_order: 45
-    m_numTex: {fileID: 2800000, guid: 425d4e425bf78244ca38116f26055736, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 46
-    m_order: 46
-    m_numTex: {fileID: 2800000, guid: 425d4e425bf78244ca38116f26055736, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 47
-    m_order: 47
-    m_numTex: {fileID: 2800000, guid: 915b87649d5dc5f4d8879c02bd1c1349, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 48
-    m_order: 48
-    m_numTex: {fileID: 2800000, guid: 915b87649d5dc5f4d8879c02bd1c1349, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 49
-    m_order: 49
-    m_numTex: {fileID: 2800000, guid: 2a5d8189f2ea4554a853a5b125eaeb55, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: c6a922af586dc874c85b3eca71e530bb, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: a43bea50dfaa88a4f85b153e7e375679, type: 3}
-  - m_id: 50
-    m_order: 50
-    m_numTex: {fileID: 2800000, guid: 2a5d8189f2ea4554a853a5b125eaeb55, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
-  - m_id: 51
-    m_order: 51
-    m_numTex: {fileID: 2800000, guid: c614ca4403f81904f86c2963c1fffad8, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 13bed92934a545b4db199fa28ebaedf3, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: 806843f06d1dc7049b4f158510317690, type: 3}
-  - m_id: 52
-    m_order: 52
-    m_numTex: {fileID: 2800000, guid: c614ca4403f81904f86c2963c1fffad8, type: 3}
-    m_flower1Tex: {fileID: 2800000, guid: 8039d1745edc7d14f8182bda788da1b1, type: 3}
-    m_flower2Tex: {fileID: 2800000, guid: bb2d6e3c296c46b47bf78f661a85e90b, type: 3}
-  - m_id: 53
-    m_order: 53
-    m_numTex: {fileID: 0}
-    m_flower1Tex: {fileID: 0}
-    m_flower2Tex: {fileID: 2800000, guid: 9dce81a6b1ca6234cbadf836b1b0a5fd, type: 3}
-  - m_id: 54
-    m_order: 54
-    m_numTex: {fileID: 0}
-    m_flower1Tex: {fileID: 0}
-    m_flower2Tex: {fileID: 2800000, guid: f7a937a2bf4f5ae44b1d8ae15820a5f2, type: 3}
+  - m_iId: 0
+    m_iOrder: 11
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 7ef1ba4ef93a73644908bd7fe3d30e84, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 1
+    m_iOrder: 12
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 4a16530a58a49ec438fdcd3b0e74fbfb, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 2
+    m_iOrder: 0
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 353f6b6c1135af1428d2a0404077303c, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 3
+    m_iOrder: 1
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 763c850b3113ba640835cd0eee70ce14, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 4
+    m_iOrder: 2
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 4fa045ac402a3ca40a75fa8aea95e0c9, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 5
+    m_iOrder: 3
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 9d710ff41351b8a4dba3d61a76637ae3, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 6
+    m_iOrder: 4
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 6790487cef58dc54f9d5527a511c28e4, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 7
+    m_iOrder: 5
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: d422addcb1819b84397127797fb29a08, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 8
+    m_iOrder: 6
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: f06a8b4340dc6bc42bc003988264fe73, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 9
+    m_iOrder: 7
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 99ff494221ed9624282f8c12877332f6, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 10
+    m_iOrder: 8
+    m_bJoker: 0
+    m_t2Num: {fileID: 2800000, guid: 1196b61c87cc38043ae9589c2c3eb560, type: 3}
+    m_t2Flower1: {fileID: 2800000, guid: 3e464f524729243459ef4b48982652a8, type: 3}
+    m_t2Flower2: {fileID: 2800000, guid: 89771f061ac1cae47a7a4dd06fbdf9e5, type: 3}
+  - m_iId: 52
+    m_iOrder: 52
+    m_bJoker: 1
+    m_t2Num: {fileID: 0}
+    m_t2Flower1: {fileID: 2800000, guid: 9dce81a6b1ca6234cbadf836b1b0a5fd, type: 3}
+    m_t2Flower2: {fileID: 0}
+  - m_iId: 53
+    m_iOrder: 53
+    m_bJoker: 1
+    m_t2Num: {fileID: 0}
+    m_t2Flower1: {fileID: 2800000, guid: f7a937a2bf4f5ae44b1d8ae15820a5f2, type: 3}
+    m_t2Flower2: {fileID: 0}
   m_lsNum:
   - m_t2RedNum: {fileID: 2800000, guid: 7ef1ba4ef93a73644908bd7fe3d30e84, type: 3}
     m_t2BlckNum: {fileID: 2800000, guid: 86911391fd2f16d4fa1bb09b471e1b35, type: 3}
@@ -309,8 +118,8 @@ MonoBehaviour:
     m_t2BlckNum: {fileID: 2800000, guid: 11752fc1bea8d344b8d9d0666a71d387, type: 3}
   - m_t2RedNum: {fileID: 2800000, guid: 1196b61c87cc38043ae9589c2c3eb560, type: 3}
     m_t2BlckNum: {fileID: 2800000, guid: 88b6ac637ee61f745a3024f138ad073e, type: 3}
-  - m_t2RedNum: {fileID: 2800000, guid: 915b87649d5dc5f4d8879c02bd1c1349, type: 3}
-    m_t2BlckNum: {fileID: 2800000, guid: 425d4e425bf78244ca38116f26055736, type: 3}
+  - m_t2RedNum: {fileID: 2800000, guid: 425d4e425bf78244ca38116f26055736, type: 3}
+    m_t2BlckNum: {fileID: 2800000, guid: 915b87649d5dc5f4d8879c02bd1c1349, type: 3}
   - m_t2RedNum: {fileID: 2800000, guid: 2a5d8189f2ea4554a853a5b125eaeb55, type: 3}
     m_t2BlckNum: {fileID: 2800000, guid: c614ca4403f81904f86c2963c1fffad8, type: 3}
   m_cardLittleFlowerItem:

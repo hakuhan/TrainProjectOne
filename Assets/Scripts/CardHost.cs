@@ -22,7 +22,6 @@ namespace TPOne
         public ICardPlayer m_cardPlayer;
         public CardUiSystem m_cardUiSystem;
         public CardRuler m_cardRuler;
-        List<int> m_lsSelectedCards;
 
         #endregion
 
@@ -33,21 +32,8 @@ namespace TPOne
             m_cardCreater = GetComponent<NomalCardCreater>();
             m_cardPlayer = GetComponent<CardPlayer>();
             m_cardSorter = GetComponent<BubbleSorter>();
-            m_lsSelectedCards = new List<int>();
 
             m_cardRuler.UpdateRule();
-        }
-
-        public void OnDisable()
-        {
-            EventSystem.OnCardClicked -= OnSelectedCard;
-            EventSystem.OnCardCanceled -= OnCancelCard;
-        }
-
-        public void OnEnable()
-        {
-            EventSystem.OnCardClicked += OnSelectedCard;
-            EventSystem.OnCardCanceled += OnCancelCard;
         }
 
         #endregion
@@ -56,39 +42,16 @@ namespace TPOne
         public void CreateCards()
         {
             m_cardCreater.CreateCards();
-            m_cardUiSystem.RefreshViewAnimaition();
         }
 
         public void PlayCards()
         {
-            m_cardPlayer.PlayCard(m_lsSelectedCards);
-            m_cardUiSystem.RefreshCards();
-
-            m_lsSelectedCards.Clear();
+            m_cardPlayer.PlayCard();
         }
 
         public void ReorderCards(bool reverse)
         {
             m_cardSorter.SortCards(reverse);
-            m_cardUiSystem.RefreshWithOpenAnimation();
-        }
-
-        void OnSelectedCard(int id)
-        {
-            int index = m_lsSelectedCards.FindIndex(c => c == id);
-            if (index == -1)
-            {
-                m_lsSelectedCards.Add(id);
-            }
-        }
-
-        void OnCancelCard(int id)
-        {
-            int index = m_lsSelectedCards.FindIndex(c => c == id);
-            if (index != -1)
-            {
-                m_lsSelectedCards.RemoveAt(index);
-            }
         }
 
         #endregion

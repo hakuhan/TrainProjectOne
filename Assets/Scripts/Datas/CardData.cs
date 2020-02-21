@@ -5,8 +5,12 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public class CardData
+namespace TPOne.Datas
 {
-    public int m_iId;
+    [Serializable]
+    public class CardData
+    {
+        public int m_iId;
+    }
+
 }

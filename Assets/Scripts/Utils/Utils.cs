@@ -4,8 +4,9 @@
 */
 
 using System.Collections.Generic;
-using TPOne.Submodule;
+using TPOne.Datas;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Utils
 {
@@ -27,13 +28,28 @@ public class Utils
         }
     }
 
+    public static bool IsPointerTouchGameObjectFirst(Vector2 v2MousePosition, GameObject targetObj)
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = v2MousePosition;
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+
+        EventSystem.current.RaycastAll(eventData, raycastResults);
+        if (raycastResults[0].gameObject.GetInstanceID() == targetObj.GetInstanceID())
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     // 线与矩形是否相交
     public static bool IsLineIntersectRect(Vector2 v2LineStart, Vector2 v2LineEnd, Rect rect)
     {
         var v2LeftDown = new Vector2(rect.xMin, rect.yMin);
         var v2LeftUp = new Vector2(rect.xMin, rect.yMax);
         var v2RightUp = new Vector2(rect.xMax, rect.yMax);
-        var v2RigtDown = new Vector2(rect.xMax, rect.yMin);;
+        var v2RigtDown = new Vector2(rect.xMax, rect.yMin); ;
 
         if (LineIntersectLine(v2LineStart, v2LineEnd, v2LeftDown, v2LeftUp))
             return true;

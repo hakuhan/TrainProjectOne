@@ -9,6 +9,6 @@ namespace TPOne
 {
     public interface ICardPlayer
     {
-        void PlayCard(List<int> cards);
+        void PlayCard();
     }
 }

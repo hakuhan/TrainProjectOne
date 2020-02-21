@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using TPOne.Datas;
 
 namespace TPOne.Submodule
 {
@@ -25,129 +26,41 @@ namespace TPOne.Submodule
         public float m_fOpenDelay = 1.5f;
 
         public int m_iId;
+        // 最终的选择状态
         public bool m_bSelected = false;
-        public bool m_bSelectedTemp = false;
-        bool m_bFirstTouch = false;
+        bool m_bSelectedTemp = false;
 
-        bool BSelected
+        public bool BSelected
         {
             set
             {
                 m_bSelectedTemp = value;
                 m_objBlckMask.SetActive(value);
             }
-
             get
             {
                 return m_bSelectedTemp;
             }
         }
 
-        public void OnEnable()
+        public void UpdateSelectedState(bool bState)
         {
-            TPOne.Events.EventSystem.OnTouchBegin += OnTouchBeginEvent;
-            TPOne.Events.EventSystem.OnTouchOver += OnTouchOverEvent;
-            TPOne.Events.EventSystem.OnDrag += OnDragEvent;
-        }
-
-        public void OnDisable()
-        {
-            TPOne.Events.EventSystem.OnTouchBegin -= OnTouchBeginEvent;
-            TPOne.Events.EventSystem.OnTouchOver -= OnTouchOverEvent;
-            TPOne.Events.EventSystem.OnDrag -= OnDragEvent;
-        }
-
-        #region event
-        void OnTouchBeginEvent()
-        {
-            DoTouchEvent(Input.mousePosition);
-        }
-
-        void OnTouchOverEvent()
-        {
-            m_bFirstTouch = false;
-
             if (BSelected)
             {
-                m_bSelected = !m_bSelected;
+                // m_bSelected = !m_bSelected;
+                m_bSelected = bState;
             }
             BSelected = false;
 
             MoveUpAnimation(m_bSelected);
             if (m_bSelected)
             {
-                TPOne.Events.EventSystem.OnCardClicked(m_iId);
+                TPOne.Events.TouchEvents.OnCardClicked(m_iId);
             }
             else
             {
-                TPOne.Events.EventSystem.OnCardCanceled(m_iId);
+                TPOne.Events.TouchEvents.OnCardCanceled(m_iId);
             }
-        }
-
-        /// <summary>
-        /// 通过插值检查是否拖动到卡片
-        /// </summary>
-        /// <param name="v2StartP"></param>
-        /// <param name="v2EndP"></param>
-        void OnDragEvent(Vector2 v2StartP, Vector2 v2EndP)
-        {
-            // Vector2 v2StartLocalP;
-            // Vector2 v2EndLocalP;
-            // RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent as RectTransform, v2StartP, Camera.main, out v2StartLocalP);
-            // RectTransformUtility.ScreenPointToLocalPointInRectangle (transform.parent as RectTransform, v2EndP, Camera.main, out v2EndLocalP);
-
-            // Rect rtBg = new Rect(
-            //     new Vector2(transform.position.x - m_riBg.rectTransform.sizeDelta.x / 2, transform.position.y - m_riBg.rectTransform.sizeDelta.y / 2),
-            //     m_riBg.rectTransform.sizeDelta);
-            // var bCross = Utils.IsLineIntersectRect(v2StartLocalP, v2EndLocalP, rtBg);
-            // BSelected = bCross;
-
-            var distance = v2StartP - v2EndP;
-
-            var deltaX = m_riBg.rectTransform.sizeDelta.x / 10f;
-            var iTimes = (int)(Mathf.Abs(distance.x) / deltaX);
-
-            BSelected = false;
-            DoTouchEvent(v2StartP);
-            DoTouchEvent(v2EndP);
-
-            for (int i = 0; i < iTimes; ++i)
-            {
-                var fScreenX = Mathf.Lerp(v2StartP.x, v2EndP.x, i / (float)iTimes);
-                var fScreenY = Mathf.Lerp(v2StartP.y, v2EndP.y, i / (float)iTimes);
-
-                DoTouchEvent(new Vector2(fScreenX, fScreenY));
-                if (BSelected)
-                {
-                    break;
-                }
-            }
-
-        }
-
-        #endregion
-
-        void DoTouchEvent(Vector2 v2CcreenPosition)
-        {
-            if (IsPointerOverGameObject(v2CcreenPosition))
-            {
-                BSelected = true;
-            }
-        }
-
-        private bool IsPointerOverGameObject(Vector2 v2MousePosition)
-        {
-            PointerEventData eventData = new PointerEventData(EventSystem.current);
-            eventData.position = v2MousePosition;
-            List<RaycastResult> raycastResults = new List<RaycastResult>();
-
-            EventSystem.current.RaycastAll(eventData, raycastResults);
-            if (raycastResults[0].gameObject.GetInstanceID() == gameObject.GetInstanceID())
-            {
-                return true;
-            }
-
-            return false;
         }
 
         public void Refresh(CardData data)
@@ -223,7 +136,7 @@ namespace TPOne.Submodule
         }
 
         void MoveUpAnimation(bool isMoveUp)
-        {   
+        {
             if (isMoveUp)
                 m_riBg.transform.DOLocalMoveY(50, 0.1f).SetLink(gameObject).SetLink(gameObject);
             else

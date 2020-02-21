@@ -3,6 +3,8 @@
     BubbleSorter:提供排序功能 
 */
 
+using TPOne.Datas;
+using TPOne.Events;
 using UnityEngine;
 
 namespace TPOne.Submodule
@@ -13,6 +15,7 @@ namespace TPOne.Submodule
         public void SortCards(bool bReverse)
         {
             Utils.Order(CardContainer.Instance.m_lsCardDatas, m_cardInfos, bReverse);
+            RefreshEvents.RefreshFoldAndOpen();
         }
     }
 }

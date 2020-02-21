@@ -4,17 +4,28 @@ using UnityEngine.Events;
 
 namespace TPOne.Events
 {
-    public class EventSystem
+    public class TouchEvents
     {
         public static UnityAction<int> OnCardClicked = (id) => { };
         public static UnityAction<int> OnCardCanceled = (id) => { };
-
-        public static UnityAction OnSlideCard = () => { };
-        public static UnityAction OnSlideOver = () => { };
 
         // Input events
         public static UnityAction OnTouchBegin = () => { };
         public static UnityAction OnTouchOver = () => { };
         public static UnityAction<Vector2, Vector2> OnDrag = (startPosition, endPosition) => { };
     }
+
+    public class RefreshEvents
+    {
+        public static UnityAction RefreshCard = () => { };
+        public static UnityAction RefreshCardDelayWithOpen = () => { };
+        public static UnityAction RefreshFoldAndOpen = () => { };
+    }
+
+    // public class UiEvents
+    // {
+    //     public static UnityAction OnClickSendCard = () => { };
+    //     public static UnityAction OnClickPlayCard = () => { };
+    //     public static UnityAction<bool> OnClickSort = (positive) => { };
+    // }
 }

@@ -5,6 +5,8 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TPOne.Datas;
+using TPOne.Events;
 using UnityEngine;
 
 namespace TPOne.Submodule
@@ -12,23 +14,23 @@ namespace TPOne.Submodule
     public class NomalCardCreater : MonoBehaviour, ICardCreater
     {
         public CardInfoSO m_cardInfoSO;
-        public int m_iCardCount = 13;
-        List<CardData> m_lsCreateList = new List<CardData>();
+        
         public void CreateCards()
         {
             // Get random number
-            m_lsCreateList.Clear();
-            while (m_lsCreateList.Count < m_iCardCount)
+            var m_lsCardData = CardContainer.Instance.m_lsCardDatas;
+            m_lsCardData.Clear();
+
+            while (m_lsCardData.Count < m_cardInfoSO.m_iCardInHandCount)
             {
-                int id = Random.Range(0, m_cardInfoSO.m_infos.Count);
-                if (m_lsCreateList.FindIndex(c => c.m_iId == id) == -1)
+                int id = Random.Range(0, m_cardInfoSO.m_iCardTotalCount);
+                if (m_lsCardData.FindIndex(c => c.m_iId == id) == -1)
                 {
-                    m_lsCreateList.Add(new CardData() { m_iId = id });
+                    m_lsCardData.Add(new CardData() { m_iId = id });
                 }
             }
 
-            // Insert to card datas
-            CardContainer.Instance.m_lsCardDatas = new List<CardData>(m_lsCreateList);
+            RefreshEvents.RefreshCardDelayWithOpen();
         }
     }
 }
