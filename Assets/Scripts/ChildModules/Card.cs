@@ -24,49 +24,18 @@ namespace TPOne.Submodule
         public RawImage m_riFlower2;
         public GameObject m_objBlckMask;
         public float m_fOpenDelay = 1.5f;
-        public bool m_bVisble = false;
-
+        public CardCurrentData m_cardData;
         public int m_iId;
         public InfoData m_info;
-        // 最终的选择状态
-        public bool m_bSelected = false;
-        bool m_bSelectedTemp = false;
 
-        public bool BSelected
+        public void UpdateTempState(bool bSeleted)
         {
-            set
-            {
-                m_bSelectedTemp = value;
-                m_objBlckMask.SetActive(value);
-            }
-            get
-            {
-                return m_bSelectedTemp;
-            }
-        }
-
-        public void UpdateSelectedState(bool bState)
-        {
-            if (BSelected)
-            {
-                // m_bSelected = !m_bSelected;
-                m_bSelected = bState;
-            }
-            BSelected = false;
-
-            MoveUpAnimation(m_bSelected);
-            if (m_bSelected)
-            {
-                TPOne.Events.TouchEvents.OnCardClicked(m_iId);
-            }
-            else
-            {
-                TPOne.Events.TouchEvents.OnCardCanceled(m_iId);
-            }
+            m_objBlckMask.SetActive(bSeleted);
         }
 
         public void ChangeState(bool bState)
         {
+            m_cardData.m_bSelected = bState;
             MoveUpAnimation(bState);
             if (bState)
             {
@@ -78,9 +47,10 @@ namespace TPOne.Submodule
             }
         }
 
-        public void Refresh(CardData data)
+        public void Refresh(InfoData data)
         {
             m_iId = data.m_iId;
+            m_cardData = CardContainer.Instance.GetCardCurrentData(data.m_iId);
 
             var index = m_infoSO.m_infos.FindIndex(info => info.m_iId == m_iId);
             if (index != -1)
@@ -91,13 +61,13 @@ namespace TPOne.Submodule
 
         public void Show()
         {
-            m_bVisble = true;
+            m_cardData.m_bVisble = true;
             gameObject.SetActive(true);
         }
 
         public void HideCard()
         {
-            m_bVisble = false;
+            m_cardData.m_bVisble = false;
             gameObject.SetActive(false);
             MoveUpAnimation(false);
         }
@@ -133,7 +103,7 @@ namespace TPOne.Submodule
                     m_riFlower2.texture = m_infoSO.m_infos[texIndex].m_t2Flower2;
                 }
                 m_objBlckMask.SetActive(false);
-                m_bSelected = false;
+                m_cardData.m_bSelected = false;
             }
 
             return bOk;

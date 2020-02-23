@@ -8,9 +8,12 @@ using UnityEngine;
 namespace TPOne.Datas
 {
     [Serializable]
-    public class CardData
+    public class CardCurrentData
     {
-        public int m_iId;
+        public bool m_bVisble = false;
+        // 最终的选择状态
+        public bool m_bSelected = false;
+        public bool m_bSelectedTemp = false;
     }
 
 }

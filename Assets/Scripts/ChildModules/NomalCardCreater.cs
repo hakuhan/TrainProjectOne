@@ -19,6 +19,7 @@ namespace TPOne.Submodule
         {
             // Get random number
             var m_lsCardData = CardContainer.Instance.m_lsCardDatas;
+            var m_lsRunningData = CardContainer.Instance.m_lsCardRunningData;
             m_lsCardData.Clear();
 
             while (m_lsCardData.Count < m_cardInfoSO.m_iCardInHandCount)
@@ -26,7 +27,8 @@ namespace TPOne.Submodule
                 int id = Random.Range(0, m_cardInfoSO.m_iCardTotalCount);
                 if (m_lsCardData.FindIndex(c => c.m_iId == id) == -1)
                 {
-                    m_lsCardData.Add(new CardData() { m_iId = id });
+                    m_lsCardData.Add(m_cardInfoSO.m_infos[id]);
+                    m_lsRunningData.Add(new CardCurrentData());
                 }
             }
 

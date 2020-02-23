@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 
 public class Utils
 {
-    public static void Order(List<CardData> lsData, CardInfoSO cardInfos, bool bReverse)
+    public static void Order(List<InfoData> lsData, CardInfoSO cardInfos, bool bReverse)
     {
         for (int i = 0; i < lsData.Count - 1; ++i)
         {

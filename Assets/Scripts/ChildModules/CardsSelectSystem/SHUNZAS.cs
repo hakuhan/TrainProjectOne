@@ -7,6 +7,7 @@ namespace TPOne.CardSelector
 {
     public class SHUNZAS : MonoBehaviour, ICardSelector
     {
+        public CardInfoSO m_infoSO;
         List<E_CardNumber> m_lsSHUN;
         List<int> m_lsCount;
         int m_iSHUNOffset = -1;
@@ -42,7 +43,7 @@ namespace TPOne.CardSelector
                 for (int j = 1; j < lsCards.Count - 1; ++j)
                 {
                     var index = lsCards.FindIndex
-                                    (_c => _c.m_bVisble
+                                    (_c => _c.m_cardData.m_bVisble
                                             && _c.m_info.m_eNumber == (lsCards[i].m_info.m_eNumber + j));
                     if (index != -1)
                     {
@@ -71,37 +72,23 @@ namespace TPOne.CardSelector
         }
         public void SelectCard()
         {
-            if (m_lsSHUN == null || m_lsSHUN.Count == 0)
-            {
+            if (!CommonModule.UpdateOffset(m_lsSHUN, ref m_iSHUNOffset))
                 return;
-            }
 
-            var lsCards = CardContainer.Instance.m_lsCards;
+            List<int> lsIds = new List<int>();
 
-            // Check offset
-            if (m_iSHUNOffset > m_lsSHUN.Count - 1)
-            {
-                ++m_iSHUNOffset;
-            }
-            else
-            {
-                m_iSHUNOffset = 0;
-            }
-
-            // hide all
-            foreach (var c in lsCards)
-            {
-                c.ChangeState(false);
-            }
+            var lsDatas = CardContainer.Instance.m_lsCardDatas;
 
             for (int i = 0; i < m_lsCount[m_iSHUNOffset]; ++i)
             {
-                int index = lsCards.FindIndex(_c => _c.m_info.m_eNumber == (m_lsSHUN[m_iSHUNOffset] + i));
+                int index = lsDatas.FindIndex(_data => _data.m_eNumber == (m_lsSHUN[m_iSHUNOffset] + i));
                 if (index != -1)
                 {
-                    lsCards[index].ChangeState(true);
+                    lsIds.Add(lsDatas[index].m_iId);
                 }
             }
+
+            ShowingCardEvents.PopupCard(lsIds.ToArray());
         }
     }
 

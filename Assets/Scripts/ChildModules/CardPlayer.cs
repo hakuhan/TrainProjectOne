@@ -44,6 +44,7 @@ namespace TPOne.Submodule
                 if (index != -1)
                 {
                     CardContainer.Instance.m_lsCardDatas.RemoveAt(index);
+                    CardContainer.Instance.m_lsCardRunningData.RemoveAt(index);
                 }
             }
 

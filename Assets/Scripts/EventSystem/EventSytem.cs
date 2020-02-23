@@ -23,6 +23,11 @@ namespace TPOne.Events
         public static UnityAction OnCardDataRefreshed = () => { };
     }
 
+    public class ShowingCardEvents
+    {
+        public static UnityAction<int[]> PopupCard = (int[] lsId) => { };
+    }
+
     // public class UiEvents
     // {
     //     public static UnityAction OnClickSendCard = () => { };

@@ -33,14 +33,15 @@ namespace TPOne.CardSelector
         {
             m_lsTierce.Clear();
             var lsCards = CardContainer.Instance.m_lsCards;
-
+            var lsCardRunningData = CardContainer.Instance.m_lsCardRunningData;
+            
             // Find pair
             for (int i = 0; i < lsCards.Count; ++i)
             {
                 int iTypeCount = 0;
                 for (int j = 0; j < lsCards.Count; ++j)
                 {
-                    if (lsCards[j].m_bVisble
+                    if (lsCardRunningData[j].m_bVisble
                         && lsCards[i].m_info.m_eNumber == lsCards[j].m_info.m_eNumber)
                     {
                         ++iTypeCount;
@@ -59,34 +60,11 @@ namespace TPOne.CardSelector
 
         public void SelectCard()
         {
-            if (m_lsTierce == null || m_lsTierce.Count == 0)
-            {
+            if (!CommonModule.UpdateOffset(m_lsTierce, ref m_iTierceOffset))
                 return;
-            }
 
-            var lsCards = CardContainer.Instance.m_lsCards;
-
-            // Check offset
-            if (m_iTierceOffset < m_lsTierce.Count - 1)
-            {
-                ++m_iTierceOffset;
-            }
-            else
-            {
-                m_iTierceOffset = 0;
-            }
-
-            // hide all
-            foreach (var c in lsCards)
-            {
-                c.ChangeState(false);
-            }
-
-            // pop up
-            foreach (var c1 in lsCards.FindAll(_c => _c.m_info.m_eNumber == m_lsTierce[m_iTierceOffset]))
-            {
-                c1.ChangeState(true);
-            }
+            var lsIds = Utils.GetIdsByCardNumber(m_infoSO, m_lsTierce[m_iTierceOffset]);
+            ShowingCardEvents.PopupCard(lsIds.ToArray());
         }
 
     }

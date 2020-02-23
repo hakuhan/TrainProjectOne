@@ -23,6 +23,7 @@ namespace TPOne.Submodule
             RefreshEvents.RefreshCard += RefreshCards;
             RefreshEvents.RefreshCardDelayWithOpen += RefreshWithDelayOpenAnimation;
             RefreshEvents.RefreshFoldAndOpen += RefreshFoldAndOpen;
+            ShowingCardEvents.PopupCard += PopupCards;
         }
 
         private void OnDisable()
@@ -30,6 +31,7 @@ namespace TPOne.Submodule
             RefreshEvents.RefreshCard -= RefreshCards;
             RefreshEvents.RefreshCardDelayWithOpen -= RefreshWithDelayOpenAnimation;
             RefreshEvents.RefreshFoldAndOpen -= RefreshFoldAndOpen;
+            ShowingCardEvents.PopupCard -= PopupCards;
         }
 
         #endregion
@@ -85,12 +87,13 @@ namespace TPOne.Submodule
         {
             var lsDatas = CardContainer.Instance.m_lsCardDatas;
             var lsCards = CardContainer.Instance.m_lsCards;
+            var lsCardRunnningDatas = CardContainer.Instance.m_lsCardRunningData;
 
             for (int i = 0; i < lsCards.Count; ++i)
             {
                 // Reset card
                 lsCards[i].HideCard();
-                lsCards[i].m_bVisble = true;
+                lsCardRunnningDatas[i].m_bVisble = true;
             }
 
             for (int j = 0; j < lsDatas.Count; ++j)
@@ -127,6 +130,33 @@ namespace TPOne.Submodule
             {
                 lsCards[i].Fold();
                 lsCards[i].OpenWithAnimation();
+            }
+        }
+
+        public void PopupCards(int[] lsCardId)
+        {
+            var lsCards = CardContainer.Instance.m_lsCards;
+            var lsCardRunnningDatas = CardContainer.Instance.m_lsCardRunningData;
+            for (int i = 0; i < lsCards.Count; ++i)
+            {
+                bool bFind = false;
+                for (int j = 0 ; j < lsCardId.Length; ++j)
+                {
+                    if (lsCardId[j] == lsCards[i].m_iId)
+                    {
+                        bFind = true;
+                        break;
+                    }
+                }
+
+                if (bFind && !lsCardRunnningDatas[i].m_bSelected)
+                {
+                    lsCards[i].ChangeState(true);
+                }
+                else if (!bFind && lsCardRunnningDatas[i].m_bSelected)
+                {
+                    lsCards[i].ChangeState(false);
+                }
             }
         }
     }

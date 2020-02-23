@@ -42,14 +42,18 @@ namespace TPOne.Submodule
         {
             // Get touched card
             var lsCards = CardContainer.Instance.m_lsCards;
+            var lsCardRunningData = CardContainer.Instance.m_lsCardRunningData;
 
-            foreach (var c in lsCards)
+            // foreach (var c in lsCards)
+            for (int i = 0; i < lsCards.Count; ++i)
             {
-                if (Utils.IsPointerTouchGameObjectFirst(Input.mousePosition, c.gameObject))
+                var card = lsCards[i];
+                if (Utils.IsPointerTouchGameObjectFirst(Input.mousePosition, card.gameObject))
                 {
                     m_data.m_bTouchValid = true;
-                    m_data.m_bCurrentSeletState = !c.m_bSelected;
-                    c.BSelected = true;
+                    m_data.m_bCurrentSeletState = !lsCardRunningData[i].m_bSelected;
+                    card.UpdateTempState(true);
+                    lsCardRunningData[i].m_bSelectedTemp = true;
                     break;
                 }
             }
@@ -57,14 +61,22 @@ namespace TPOne.Submodule
 
         void OnTouchOverEvent()
         {
+            var lsCardRunningData = CardContainer.Instance.m_lsCardRunningData;
+            var lsCards = CardContainer.Instance.m_lsCards;
+
             if (!m_data.m_bTouchValid)
             {
                 return;
             }
 
-            foreach (var c in CardContainer.Instance.m_lsCards)
+            for (int i = 0; i < lsCards.Count; ++i)
             {
-                c.UpdateSelectedState(m_data.m_bCurrentSeletState);
+                if (lsCardRunningData[i].m_bSelectedTemp)
+                {
+                    lsCards[i].ChangeState(m_data.m_bCurrentSeletState);
+                    lsCardRunningData[i].m_bSelectedTemp = false;
+                }
+                lsCards[i].UpdateTempState(false);
             }
 
             m_data.m_bTouchValid = false;
@@ -89,6 +101,7 @@ namespace TPOne.Submodule
             // BSelected = bCross;
 
             var lsCards = CardContainer.Instance.m_lsCards;
+            var lsCardRunningData = CardContainer.Instance.m_lsCardRunningData;
             if (!m_data.m_bTouchValid || (lsCards != null && lsCards.Count <= 0))
             {
                 return;
@@ -96,8 +109,8 @@ namespace TPOne.Submodule
 
             // Reset card statue
             foreach (var c in lsCards)
-            { 
-                c.BSelected = false;
+            {
+                c.UpdateTempState(false);
             }
 
             // Check
@@ -111,11 +124,13 @@ namespace TPOne.Submodule
                 var fScreenX = Mathf.Lerp(v2StartP.x, v2EndP.x, i / (float)iTimes);
                 var fScreenY = Mathf.Lerp(v2StartP.y, v2EndP.y, i / (float)iTimes);
 
-                foreach (var c in lsCards)
+                for (int j = 0; j < lsCards.Count; ++j)
                 {
-                    if (Utils.IsPointerTouchGameObjectFirst(new Vector2(fScreenX, fScreenY), c.gameObject))
+                    var card = lsCards[j];
+                    if (Utils.IsPointerTouchGameObjectFirst(new Vector2(fScreenX, fScreenY), card.gameObject))
                     {
-                        c.BSelected = true;
+                        card.UpdateTempState(true);
+                        lsCardRunningData[j].m_bSelectedTemp = true;
                     }
                 }
             }
