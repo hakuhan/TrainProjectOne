@@ -70,6 +70,18 @@ public class Utils
         return E_CardNumber.none;
     }
 
+    public static int GetLandlordRealOrder(E_CardNumber eNum)
+    {
+        int iResult = eNum - E_CardNumber.two;
+
+        if (iResult <= 0)
+        {
+            iResult += (E_CardNumber.k - E_CardNumber.two);
+        }
+
+        return iResult;
+    }
+
     // 线与矩形是否相交
     public static bool IsLineIntersectRect(Vector2 v2LineStart, Vector2 v2LineEnd, Rect rect)
     {

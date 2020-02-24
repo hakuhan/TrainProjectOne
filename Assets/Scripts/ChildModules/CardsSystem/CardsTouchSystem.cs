@@ -11,13 +11,13 @@ namespace TPOne.Submodule
 {
     public class CardsTouchSystem : MonoBehaviour
     {
-        public CardsSystemData m_data;
+        public CardsTouchData m_data;
 
         #region Life circle
 
         private void Awake()
         {
-            m_data = new CardsSystemData();
+            m_data = new CardsTouchData();
         }
 
         private void OnEnable()

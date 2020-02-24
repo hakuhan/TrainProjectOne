@@ -1,6 +1,6 @@
 /* 
     create by baihan 2020.02.20 
-    CardData: 牌存储数据 
+    CardData: 牌运行过程中的数据 
 */
 using System;
 using UnityEngine;

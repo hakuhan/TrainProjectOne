@@ -62,7 +62,6 @@ namespace TPOne.Datas
     public enum E_CardNumber
     {
         a,
-        one,
         two,
         tree,
         four,

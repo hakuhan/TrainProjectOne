@@ -1,3 +1,8 @@
+/* 
+    create by baihan 2020.02.24 
+    选择系统的通用方法 
+*/
+
 using System.Collections.Generic;
 using TPOne.Datas;
 using UnityEngine;

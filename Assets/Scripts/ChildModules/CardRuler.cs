@@ -26,7 +26,7 @@ namespace TPOne.Submodule
                 cardInfo.m_iId = i;
 
                 // Set number
-                cardInfo.m_eNumber = (E_CardNumber)(i % 13 + 1);
+                cardInfo.m_eNumber = (E_CardNumber)(i % 13);
 
                 // Set type
                 cardInfo.m_eType = (E_CardType)(i / 13);

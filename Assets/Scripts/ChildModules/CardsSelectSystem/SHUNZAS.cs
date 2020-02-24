@@ -1,3 +1,8 @@
+/* 
+    create by baihan 2020.02.24 
+    选择顺子 
+*/
+
 using System.Collections.Generic;
 using TPOne.Datas;
 using TPOne.Events;
@@ -33,21 +38,29 @@ namespace TPOne.CardSelector
         {
             m_lsSHUN.Clear();
             m_lsCount.Clear();
-            var lsCards = CardContainer.Instance.m_lsCards;
+            var lsCardRunningData = CardContainer.Instance.m_lsCardRunningData;
+            var lsCardInfo = CardContainer.Instance.m_lsCardDatas;
 
             // Find pair
-            for (int i = 0; i < lsCards.Count; ++i)
+            for (int i = 0; i < lsCardInfo.Count; ++i)
             {
                 bool bShun = false;
                 int iCount = 0;
-                for (int j = 1; j < lsCards.Count - 1; ++j)
+                int[] lslargerIndeses = new int[lsCardInfo.Count];
+                for (int j = 0; j < lsCardInfo.Count - 1; ++j)
                 {
-                    var index = lsCards.FindIndex
-                                    (_c => _c.m_cardData.m_bVisble
-                                            && _c.m_info.m_eNumber == (lsCards[i].m_info.m_eNumber + j));
-                    if (index != -1)
+                    int iLargeNum = Utils.GetLandlordRealOrder(lsCardInfo[j].m_eNumber) - Utils.GetLandlordRealOrder(lsCardInfo[i].m_eNumber);
+                    if (iLargeNum > 0)
                     {
-                        iCount++;
+                        lslargerIndeses[iLargeNum] = iLargeNum;
+                    }
+                }
+
+                for (int k = 1; k < lslargerIndeses.Length; ++k)
+                {
+                    if (lslargerIndeses[k] == k)
+                    {
+                        ++iCount;
                     }
                     else
                     {
@@ -60,7 +73,7 @@ namespace TPOne.CardSelector
                     bShun = true;
                 }
 
-                var eCardNumber = lsCards[i].m_info.m_eNumber;
+                var eCardNumber = lsCardInfo[i].m_eNumber;
                 if (bShun && !m_lsSHUN.Contains(eCardNumber))
                 {
                     m_lsSHUN.Add(eCardNumber);

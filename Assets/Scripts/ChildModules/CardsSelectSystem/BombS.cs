@@ -1,3 +1,8 @@
+/* 
+    create by baihan 2020.02.24 
+    选择炸弹
+*/
+
 using System.Collections.Generic;
 using TPOne.Datas;
 using TPOne.Events;
@@ -40,23 +45,23 @@ namespace TPOne.CardSelector
         public void RefreshCard()
         {
             m_lsBomb.Clear();
-            var lsCards = CardContainer.Instance.m_lsCards;
             var lsCardRunningData = CardContainer.Instance.m_lsCardRunningData;
+            var lsCardInfo = CardContainer.Instance.m_lsCardDatas;
 
             // Find pair
-            for (int i = 0; i < lsCards.Count; ++i)
+            for (int i = 0; i < lsCardInfo.Count; ++i)
             {
                 int iTypeCount = 0;
-                for (int j = 0; j < lsCards.Count; ++j)
+                for (int j = 0; j < lsCardInfo.Count; ++j)
                 {
                     if (lsCardRunningData[j].m_bVisble
-                        && lsCards[i].m_info.m_eNumber == lsCards[j].m_info.m_eNumber)
+                        && lsCardInfo[i].m_eNumber == lsCardInfo[j].m_eNumber)
                     {
                         ++iTypeCount;
                     }
                 }
 
-                var eCardNumber = lsCards[i].m_info.m_eNumber;
+                var eCardNumber = lsCardInfo[i].m_eNumber;
                 if (iTypeCount == 4 && !m_lsBomb.Contains(eCardNumber)
                     || (iTypeCount == 2 && eCardNumber == E_CardNumber.joker))
                 {
