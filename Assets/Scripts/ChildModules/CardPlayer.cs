@@ -21,19 +21,26 @@ namespace TPOne.Submodule
             m_lsSelectedCards = new List<int>();
         }
 
-        public void OnDisable()
-        {
-            TouchEvents.OnCardClicked -= OnSelectedCard;
-            TouchEvents.OnCardCanceled -= OnCancelCard;
-        }
-
         public void OnEnable()
         {
             TouchEvents.OnCardClicked += OnSelectedCard;
             TouchEvents.OnCardCanceled += OnCancelCard;
+            RefreshEvents.OnCardDataRefreshed += Reset;
+        }
+
+        public void OnDisable()
+        {
+            TouchEvents.OnCardClicked -= OnSelectedCard;
+            TouchEvents.OnCardCanceled -= OnCancelCard;
+            RefreshEvents.OnCardDataRefreshed -= Reset;
         }
 
         #endregion
+
+        public void Reset()
+        {
+            m_lsSelectedCards.Clear();
+        }
 
         public void PlayCard()
         {

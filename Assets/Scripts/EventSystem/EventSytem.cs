@@ -27,11 +27,4 @@ namespace TPOne.Events
     {
         public static UnityAction<int[]> PopupCard = (int[] lsId) => { };
     }
-
-    // public class UiEvents
-    // {
-    //     public static UnityAction OnClickSendCard = () => { };
-    //     public static UnityAction OnClickPlayCard = () => { };
-    //     public static UnityAction<bool> OnClickSort = (positive) => { };
-    // }
 }

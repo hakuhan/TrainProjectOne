@@ -15,6 +15,7 @@ namespace TPOne.Submodule
         public CardInfoSO m_cardInfo;
         public GameObject m_objCardTemp;
         public Transform m_tfContainer;
+        public GameObject m_objHideMask;
 
         #region life circle
 
@@ -24,6 +25,7 @@ namespace TPOne.Submodule
             RefreshEvents.RefreshCardDelayWithOpen += RefreshWithDelayOpenAnimation;
             RefreshEvents.RefreshFoldAndOpen += RefreshFoldAndOpen;
             ShowingCardEvents.PopupCard += PopupCards;
+            RefreshEvents.OnCardDataRefreshed += PopDownAll;
         }
 
         private void OnDisable()
@@ -32,6 +34,7 @@ namespace TPOne.Submodule
             RefreshEvents.RefreshCardDelayWithOpen -= RefreshWithDelayOpenAnimation;
             RefreshEvents.RefreshFoldAndOpen -= RefreshFoldAndOpen;
             ShowingCardEvents.PopupCard -= PopupCards;
+            RefreshEvents.OnCardDataRefreshed -= PopDownAll;
         }
 
         #endregion
@@ -76,15 +79,20 @@ namespace TPOne.Submodule
                 lsCards[j].Show();
                 lsCards[j].Open();
             }
+
+            PopDownAll();
         }
 
         public void RefreshWithDelayOpenAnimation()
         {
             StartCoroutine(RefreshAsync());
+            PopDownAll();
         }
 
         IEnumerator RefreshAsync()
         {
+            m_objHideMask.SetActive(true);
+
             var lsDatas = CardContainer.Instance.m_lsCardDatas;
             var lsCards = CardContainer.Instance.m_lsCards;
             var lsCardRunnningDatas = CardContainer.Instance.m_lsCardRunningData;
@@ -113,6 +121,7 @@ namespace TPOne.Submodule
             {
                 c.Open();
             }
+            m_objHideMask.SetActive(false);
         }
 
         public void RefreshFoldAndOpen()
@@ -131,6 +140,8 @@ namespace TPOne.Submodule
                 lsCards[i].Fold();
                 lsCards[i].OpenWithAnimation();
             }
+
+            PopDownAll();
         }
 
         public void PopupCards(int[] lsCardId)
@@ -141,7 +152,7 @@ namespace TPOne.Submodule
             for (int i = 0; i < lsCardRunnningDatas.Count; ++i)
             {
                 bool bFind = false;
-                for (int j = 0 ; j < lsCardId.Length; ++j)
+                for (int j = 0; j < lsCardId.Length; ++j)
                 {
                     if (lsCardId[j] == lsCardData[i].m_iId)
                     {
@@ -158,6 +169,21 @@ namespace TPOne.Submodule
                 {
                     lsCards[i].ChangeState(false);
                 }
+            }
+        }
+
+        public void PopDownAll()
+        {
+            var lsCards = CardContainer.Instance.m_lsCards;
+            var lsCardRunnningDatas = CardContainer.Instance.m_lsCardRunningData;
+            for (int i = 0; i < lsCardRunnningDatas.Count; ++i)
+            {
+                if (lsCardRunnningDatas[i].m_bSelected)
+                {
+                    lsCards[i].ChangeState(false);
+                }
+                lsCardRunnningDatas[i].m_bSelected = false;
+                lsCardRunnningDatas[i].m_bSelectedTemp = false;
             }
         }
     }
