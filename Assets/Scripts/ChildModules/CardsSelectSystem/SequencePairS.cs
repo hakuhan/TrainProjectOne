@@ -88,7 +88,10 @@ namespace TPOne.CardSelector
         public void SelectCard()
         {
             if (!CommonModule.UpdateOffset(m_lsSqPair, ref m_iSqPairOffset))
+            {
+                UiEvents.NoneSelectionFond();
                 return;
+            }
 
             var lsIds = new List<int>();
             var lsDatas = CardContainer.Instance.m_lsCardDatas;

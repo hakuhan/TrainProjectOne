@@ -39,7 +39,7 @@ namespace TPOne.CardSelector
             m_lsTierce.Clear();
             var lsCardRunningData = CardContainer.Instance.m_lsCardRunningData;
             var lsCardInfo = CardContainer.Instance.m_lsCardDatas;
-            
+
             // Find pair
             for (int i = 0; i < lsCardInfo.Count; ++i)
             {
@@ -66,7 +66,10 @@ namespace TPOne.CardSelector
         public void SelectCard()
         {
             if (!CommonModule.UpdateOffset(m_lsTierce, ref m_iTierceOffset))
+            {
+                UiEvents.NoneSelectionFond();
                 return;
+            }
 
             var lsIds = Utils.GetIdsByCardNumber(m_infoSO, m_lsTierce[m_iTierceOffset]);
             ShowingCardEvents.PopupCard(lsIds.ToArray());

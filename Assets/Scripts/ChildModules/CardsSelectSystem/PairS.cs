@@ -66,10 +66,13 @@ namespace TPOne.CardSelector
         public void SelectCard()
         {
             if (!CommonModule.UpdateOffset(m_lsPair, ref m_iPairOffset))
+            {
+                UiEvents.NoneSelectionFond();
                 return;
+            }
 
             var lsCards = CardContainer.Instance.m_lsCards;
-            
+
             var lsIds = Utils.GetIdsByCardNumber(m_infoSO, m_lsPair[m_iPairOffset]);
             ShowingCardEvents.PopupCard(lsIds.ToArray());
         }

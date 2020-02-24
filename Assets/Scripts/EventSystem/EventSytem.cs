@@ -27,4 +27,9 @@ namespace TPOne.Events
     {
         public static UnityAction<int[]> PopupCard = (int[] lsId) => { };
     }
+
+    public class UiEvents
+    {
+        public static UnityAction NoneSelectionFond = () => { };
+    }
 }

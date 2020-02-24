@@ -631,5 +631,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2065992405399707820, guid: 4e29abf9ef8e980419f6e3b3222417cc,
+        type: 3}
+      propertyPath: m_objPopUpPref
+      value: 
+      objectReference: {fileID: 5169434010282936627, guid: 4fe16f56ff97efa40bc84461336af3fe,
+        type: 3}
+    - target: {fileID: 2035117010, guid: 4e29abf9ef8e980419f6e3b3222417cc, type: 3}
+      propertyPath: m_objPopUpPref
+      value: 
+      objectReference: {fileID: 5169434010282936627, guid: 4fe16f56ff97efa40bc84461336af3fe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e29abf9ef8e980419f6e3b3222417cc, type: 3}

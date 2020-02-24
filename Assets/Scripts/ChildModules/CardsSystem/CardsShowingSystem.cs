@@ -6,6 +6,7 @@
 using System.Collections;
 using TPOne.Datas;
 using TPOne.Events;
+using TPOne.Ui;
 using UnityEngine;
 
 namespace TPOne.Submodule

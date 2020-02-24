@@ -93,7 +93,10 @@ namespace TPOne.CardSelector
         public void SelectCard()
         {
             if (!CommonModule.UpdateOffset(m_lsSHUN, ref m_iSHUNOffset))
+            {
+                UiEvents.NoneSelectionFond();
                 return;
+            }
 
             List<int> lsIds = new List<int>();
 

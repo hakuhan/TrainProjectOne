@@ -36,7 +36,10 @@ namespace TPOne.CardSelector
         public void SelectCard()
         {
             if(!CommonModule.UpdateOffset(m_lsBomb, ref m_iBombOffset))
+            {
+                UiEvents.NoneSelectionFond();
                 return;
+            }
 
             var lsIds = Utils.GetIdsByCardNumber(m_infoSO, m_lsBomb[m_iBombOffset]);
             ShowingCardEvents.PopupCard(lsIds.ToArray());
