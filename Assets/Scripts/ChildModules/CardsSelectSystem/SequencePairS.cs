@@ -47,7 +47,7 @@ namespace TPOne.CardSelector
                 {
                     continue;
                 }
-                int iCount = 1;
+                int iCount = 0;
                 int[] lsCurrentOrder = new int[(int)E_CardNumber.joker];
                 for (int j = 0; j < lsCardInfo.Count; ++j)
                 {
@@ -57,13 +57,13 @@ namespace TPOne.CardSelector
                     }
                     int iLargerNumber = Utils.GetLandlordRealOrder(lsCardInfo[j].m_eNumber)
                                         - Utils.GetLandlordRealOrder(lsCardInfo[i].m_eNumber);
-                    if (iLargerNumber > 0)
+                    if (iLargerNumber >= 0)
                     {
                         lsCurrentOrder[iLargerNumber] += 1;
                     }
                 }
 
-                for (int k = 1; k < lsCurrentOrder.Length; ++k)
+                for (int k = 0; k < lsCurrentOrder.Length; ++k)
                 {
                     if (lsCurrentOrder[k] >= 2)
                     {
