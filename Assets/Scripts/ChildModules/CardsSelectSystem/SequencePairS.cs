@@ -86,7 +86,7 @@ namespace TPOne.CardSelector
             var lsDatas = CardContainer.Instance.m_lsCardDatas;
             for (int i = 0; i < m_lsSequenceCount[m_iSqPairOffset]; ++i)
             {
-                var lsNums = lsDatas.FindAll(d => d.m_eNumber == m_lsSqPair[m_iSqPairOffset]);
+                var lsNums = lsDatas.FindAll(d => d.m_eNumber == Utils.PlugLandlordNumber(m_lsSqPair[m_iSqPairOffset], i));
                 if (lsNums.Count >= m_equalCount)
                 {
                     for (int j = 0; j < m_equalCount; ++j)

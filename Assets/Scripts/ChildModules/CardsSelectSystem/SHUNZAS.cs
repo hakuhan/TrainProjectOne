@@ -101,7 +101,7 @@ namespace TPOne.CardSelector
 
             for (int i = 0; i < m_lsCount[m_iSHUNOffset]; ++i)
             {
-                int index = lsDatas.FindIndex(_data => _data.m_eNumber == (m_lsSHUN[m_iSHUNOffset] + i));
+                int index = lsDatas.FindIndex(_data => _data.m_eNumber == Utils.PlugLandlordNumber(m_lsSHUN[m_iSHUNOffset], i));
                 if (index != -1)
                 {
                     lsIds.Add(lsDatas[index].m_iId);

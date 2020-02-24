@@ -82,6 +82,17 @@ public class Utils
         return iResult;
     }
 
+    public static E_CardNumber PlugLandlordNumber(E_CardNumber eTarget, int iNum)
+    {
+        int result = (int)(eTarget + iNum);
+        if (result >= (int)E_CardNumber.joker)
+        {
+            result -= 13;
+        }
+
+        return (E_CardNumber)result;
+    }
+
     // 线与矩形是否相交
     public static bool IsLineIntersectRect(Vector2 v2LineStart, Vector2 v2LineEnd, Rect rect)
     {

@@ -54,16 +54,6 @@ namespace TPOne.Submodule
                 m_lsRunningData.Add(new CardCurrentData());
             }
 
-            // while (m_lsCardData.Count < m_cardInfoSO.m_iCardInHandCount)
-            // {
-            //     int id = Random.Range(0, m_cardInfoSO.m_iCardTotalCount);
-            //     if (m_lsCardData.FindIndex(c => c.m_iId == id) == -1)
-            //     {
-            //         m_lsCardData.Add(m_cardInfoSO.m_infos[id]);
-            //         m_lsRunningData.Add(new CardCurrentData());
-            //     }
-            // }
-
             RefreshEvents.RefreshCardDelayWithOpen();
             RefreshEvents.OnCardDataRefreshed();
         }
