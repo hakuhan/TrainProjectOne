@@ -137,12 +137,13 @@ namespace TPOne.Submodule
         {
             var lsCards = CardContainer.Instance.m_lsCards;
             var lsCardRunnningDatas = CardContainer.Instance.m_lsCardRunningData;
-            for (int i = 0; i < lsCards.Count; ++i)
+            var lsCardData = CardContainer.Instance.m_lsCardDatas;
+            for (int i = 0; i < lsCardRunnningDatas.Count; ++i)
             {
                 bool bFind = false;
                 for (int j = 0 ; j < lsCardId.Length; ++j)
                 {
-                    if (lsCardId[j] == lsCards[i].m_iId)
+                    if (lsCardId[j] == lsCardData[i].m_iId)
                     {
                         bFind = true;
                         break;

@@ -45,6 +45,7 @@ namespace TPOne.Submodule
             var m_lsCardData = CardContainer.Instance.m_lsCardDatas;
             var m_lsRunningData = CardContainer.Instance.m_lsCardRunningData;
             m_lsCardData.Clear();
+            m_lsRunningData.Clear();
 
             ShuffleCards(Random.Range(0, 20), m_data.lsId);
             for (int i = 0; i < m_cardInfoSO.m_iCardInHandCount; ++i)

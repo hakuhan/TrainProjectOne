@@ -51,11 +51,11 @@ namespace TPOne.CardSelector
                 int[] lslargerIndeses = new int[(int)E_CardNumber.joker];
                 for (int j = 0; j < lsCardInfo.Count - 1; ++j)
                 {
-                    if (lsCardInfo[j].m_eNumber == E_CardNumber.joker)
+                    if (lsCardInfo[j].m_eNumber == E_CardNumber.joker || lsCardInfo[j].m_eNumber == E_CardNumber.two)
                     {
                         continue;
                     }
-                    int iLargeNum = Utils.GetLandlordRealOrder(lsCardInfo[j].m_eNumber) 
+                    int iLargeNum = Utils.GetLandlordRealOrder(lsCardInfo[j].m_eNumber)
                                     - Utils.GetLandlordRealOrder(lsCardInfo[i].m_eNumber);
                     if (iLargeNum > 0)
                     {

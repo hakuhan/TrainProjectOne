@@ -41,12 +41,20 @@ namespace TPOne.CardSelector
             m_lsSequenceCount.Clear();
 
             var lsCardInfo = CardContainer.Instance.m_lsCardDatas;
-            int[] lsCurrentOrder = new int[(int)E_CardNumber.joker];
-            int iCount = 1;
             for (int i = 0; i < lsCardInfo.Count; ++i)
             {
+                if (lsCardInfo[i].m_eNumber == E_CardNumber.joker)
+                {
+                    continue;
+                }
+                int iCount = 1;
+                int[] lsCurrentOrder = new int[(int)E_CardNumber.joker];
                 for (int j = 0; j < lsCardInfo.Count; ++j)
                 {
+                    if (lsCardInfo[j].m_eNumber == E_CardNumber.joker || lsCardInfo[j].m_eNumber == E_CardNumber.two)
+                    {
+                        continue;
+                    }
                     int iLargerNumber = Utils.GetLandlordRealOrder(lsCardInfo[j].m_eNumber)
                                         - Utils.GetLandlordRealOrder(lsCardInfo[i].m_eNumber);
                     if (iLargerNumber > 0)
@@ -57,7 +65,7 @@ namespace TPOne.CardSelector
 
                 for (int k = 1; k < lsCurrentOrder.Length; ++k)
                 {
-                    if (lsCurrentOrder[k] == 2)
+                    if (lsCurrentOrder[k] >= 2)
                     {
                         ++iCount;
                     }
@@ -68,7 +76,7 @@ namespace TPOne.CardSelector
                 }
 
                 var eCardNumber = lsCardInfo[i].m_eNumber;
-                if (iCount >= 5 && !m_lsSqPair.Contains(eCardNumber))
+                if (iCount >= 3 && !m_lsSqPair.Contains(eCardNumber))
                 {
                     m_lsSqPair.Add(eCardNumber);
                     m_lsSequenceCount.Add(iCount);

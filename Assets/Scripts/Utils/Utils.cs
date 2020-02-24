@@ -72,11 +72,11 @@ public class Utils
 
     public static int GetLandlordRealOrder(E_CardNumber eNum)
     {
-        int iResult = eNum - E_CardNumber.two;
+        int iResult = (int)eNum;
 
-        if (iResult <= 0)
+        if (eNum <= E_CardNumber.two)
         {
-            iResult += (E_CardNumber.k - E_CardNumber.two);
+            iResult = (int)eNum + (int)E_CardNumber.joker;
         }
 
         return iResult;
