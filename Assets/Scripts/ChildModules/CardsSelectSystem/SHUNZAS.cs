@@ -12,7 +12,6 @@ namespace TPOne.CardSelector
 {
     public class SHUNZAS : MonoBehaviour, ICardSelector
     {
-        public CardInfoSO m_infoSO;
         List<E_CardNumber> m_lsSHUN;
         List<int> m_lsCount;
         int m_iSHUNOffset = -1;
@@ -38,27 +37,35 @@ namespace TPOne.CardSelector
         {
             m_lsSHUN.Clear();
             m_lsCount.Clear();
-            var lsCardRunningData = CardContainer.Instance.m_lsCardRunningData;
             var lsCardInfo = CardContainer.Instance.m_lsCardDatas;
 
             // Find pair
             for (int i = 0; i < lsCardInfo.Count; ++i)
             {
+                if (lsCardInfo[i].m_eNumber == E_CardNumber.joker)
+                {
+                    continue;
+                }
                 bool bShun = false;
-                int iCount = 0;
-                int[] lslargerIndeses = new int[lsCardInfo.Count];
+                int iCount = 1;
+                int[] lslargerIndeses = new int[(int)E_CardNumber.joker];
                 for (int j = 0; j < lsCardInfo.Count - 1; ++j)
                 {
-                    int iLargeNum = Utils.GetLandlordRealOrder(lsCardInfo[j].m_eNumber) - Utils.GetLandlordRealOrder(lsCardInfo[i].m_eNumber);
+                    if (lsCardInfo[j].m_eNumber == E_CardNumber.joker)
+                    {
+                        continue;
+                    }
+                    int iLargeNum = Utils.GetLandlordRealOrder(lsCardInfo[j].m_eNumber) 
+                                    - Utils.GetLandlordRealOrder(lsCardInfo[i].m_eNumber);
                     if (iLargeNum > 0)
                     {
-                        lslargerIndeses[iLargeNum] = iLargeNum;
+                        lslargerIndeses[iLargeNum] += 1;
                     }
                 }
 
                 for (int k = 1; k < lslargerIndeses.Length; ++k)
                 {
-                    if (lslargerIndeses[k] == k)
+                    if (lslargerIndeses[k] != 0)
                     {
                         ++iCount;
                     }
